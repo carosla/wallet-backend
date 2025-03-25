@@ -1,19 +1,19 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-      "target": "ES6",
-      "module": "CommonJS",
-      "strict": true,
-      "baseUrl": "./",
-      "paths": {
-        "@src/*": ["./src/*"]
-      },
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true
+    "target": "ES6",                  
+    "module": "CommonJS",              
+    "strict": true,                    
+    "baseUrl": "./",                   
+    "paths": {
+      "@src/*": ["./src/*"]            
     },
-    
-    "include": [
-    "src/**/*"
-  ],
+    "outDir": "./dist",                
+    "rootDir": "./src",                
+    "esModuleInterop": true,           
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,              
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
