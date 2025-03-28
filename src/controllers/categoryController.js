@@ -11,6 +11,7 @@ const criarCategoria = async (req, res) => {
 
     const novaCategoria = await Categoria.create({ categoria });
 
+
     res.status(201).json({
       mensagem: "Categoria cadastrada com sucesso",
       categoria: { id: novaCategoria.categoria_ID, categoria: novaCategoria.categoria },
