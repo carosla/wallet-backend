@@ -94,6 +94,10 @@ const listarTransacoes = async (req, res) => {
       include: [{
         model: TipoTransacao,
         attributes: ['transacao'], 
+      },
+      {
+        model: Categoria,
+        attributes: ['categoria']
       }
         ],
     });
