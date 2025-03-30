@@ -10,6 +10,6 @@ router.post('/categorias', verificarToken, criarCategoria);
 router.delete('/categorias/:categoria_id', verificarToken, excluirCategoria);
 
 // Endpoint para pegar todas as categorias
-router.get("/categorias", verificarToken, buscarCategorias);
+router.get("/categorias", buscarCategorias);
 
 module.exports = router;
