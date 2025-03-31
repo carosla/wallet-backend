@@ -103,7 +103,7 @@ const listarTransacoes = async (req, res) => {
     });
 
     if (transacoes.length === 0) {
-      return res.status(404).json({ mensagem: "Não há transações para este usuário." });
+      return res.status(200).json({ mensagem: "Não há transações para este usuário." });
     }
 
     res.status(200).json(transacoes);
