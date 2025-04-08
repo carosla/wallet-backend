@@ -22,4 +22,6 @@ Transacoes.belongsTo(TipoTransacao, {
   foreignKey: "tipo_transacao_id",
 });
 
+
+
 module.exports = { TipoTransacao, Transacoes, Categoria };

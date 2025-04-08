@@ -11,6 +11,14 @@ const Categoria = sequelize.define('categoria', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  usuario_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: "usuarios",
+      key: "usuario_id",
+    },
+  },
 }, {
   sequelize,
   tableName: 'categoria',  
