@@ -78,7 +78,7 @@ const atualizarCategoria = async (req, res) => {
 
     // Busca a categoria no banco
     const categoriaExistente = await Categoria.findOne({
-      where: { categoria_ID: categoria_id, usuario_id: usuario_id }
+      where: { categoria_id: categoria_id, usuario_id: usuario_id }
     });
 
     if (!categoriaExistente) {
