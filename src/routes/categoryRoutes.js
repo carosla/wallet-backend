@@ -13,6 +13,6 @@ router.delete('/categorias/:categoria_id', verificarToken, excluirCategoria);
 router.get("/categorias", verificarToken, buscarCategorias);
 
 // Endpoint para atualizar todas as categorias
-router.update("/categorias/:categoria_id", verificarToken, atualizarCategoria);
+router.put("/categorias/:categoria_id", verificarToken, atualizarCategoria);
 
 module.exports = router;
