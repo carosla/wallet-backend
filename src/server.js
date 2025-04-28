@@ -7,6 +7,7 @@ const sequelize = require("./config/database");
 const authRoutes = require("./routes/authRoutes");
 const categoryRoutes = require("./routes/categoryRoutes"); 
 const transactionRoutes = require("./routes/transactionRoutes"); 
+const perfilRoutes = require("./routes/perfilRoutes")
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 app.use("/api", categoryRoutes);
 app.use("/api", transactionRoutes);
+app.use("/api", perfilRoutes)
 
 app.get("/api/test", (req, res) => {
   res.send("API está rodando!");
