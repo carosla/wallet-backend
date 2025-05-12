@@ -23,6 +23,10 @@ const Perfil = sequelize.define('perfil', {
       key: "usuario_id",
     },
   },
+  nome: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
 }, {
   sequelize,
   tableName: 'perfil',  

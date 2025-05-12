@@ -4,7 +4,7 @@ const Usuario = require('../models/usuario');
 // Função para criar um perfil
 const criarPerfil = async (req, res) => {
   try {
-    const { foto_perfil, descricao } = req.body;
+    const { foto_perfil, descricao, nome } = req.body;
     const usuario_id = req.usuario_id;
 
     // Verifica se os dados necessários foram passados
@@ -22,7 +22,8 @@ const criarPerfil = async (req, res) => {
     const novoPerfil = await Perfil.create({
       foto_perfil,
       descricao,
-      usuario_id
+      usuario_id,
+      nome
     });
 
     res.status(201).json({
@@ -62,7 +63,7 @@ const buscarPerfil = async (req, res) => {
 const atualizarPerfil = async (req, res) => {
   try {
     const { perfil_id } = req.params;
-    const { foto_perfil, descricao } = req.body;
+    const { foto_perfil, descricao, nome } = req.body;
     const usuario_id = req.usuario_id;
 
     // Verifica se os dados foram passados
@@ -81,6 +82,7 @@ const atualizarPerfil = async (req, res) => {
     // Atualiza o perfil
     if (foto_perfil) perfilExistente.foto_perfil = foto_perfil;
     if (descricao) perfilExistente.descricao = descricao;
+    if (nome) perfilExistente.nome = nome;
 
     await perfilExistente.save();
 
