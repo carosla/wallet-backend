@@ -35,7 +35,7 @@ const criarPerfil = async (req, res) => {
   }
 };
 
-// Função para buscar um perfil por ID do usuário
+//Busca perfil do usuário
 const buscarPerfil = async (req, res) => {
   try {
     const usuario_id = req.usuario_id;
@@ -46,15 +46,28 @@ const buscarPerfil = async (req, res) => {
     }
 
     const perfil = await Perfil.findOne({
-      where: { usuario_id }
+      where: { usuario_id },
+      include: {
+        model: Usuario,
+        attributes: ["email", "login"]
+      }
     });
 
     if (!perfil) {
       return res.status(404).json({ mensagem: "Perfil não encontrado." });
     }
 
-    res.status(200).json(perfil);
+    res.status(200).json({
+      perfil_id: perfil.perfil_id,
+      nome: perfil.nome,
+      descricao: perfil.descricao,
+      foto_perfil: perfil.foto_perfil,
+      usuario_id: perfil.usuario_id,
+      email: perfil.usuario?.email,
+      login: perfil.usuario?.login,
+    });
   } catch (error) {
+    console.error("Erro ao buscar perfil:", error);
     res.status(500).json({ mensagem: "Erro ao buscar perfil", erro: error.message });
   }
 };
