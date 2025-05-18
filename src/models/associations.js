@@ -23,10 +23,16 @@ Transacoes.belongsTo(TipoTransacao, {
   foreignKey: "tipo_transacao_id",
 });
 
+// Um usuário tem um perfil
 Usuario.hasOne(Perfil, {
   foreignKey: "usuario_id",
 });
 
+// E o perfil pertence a um usuário
+Perfil.belongsTo(Usuario, {
+  foreignKey: "usuario_id"
+});
 
 
-module.exports = { TipoTransacao, Transacoes, Categoria };
+
+module.exports = { TipoTransacao, Transacoes, Categoria, Usuario, Perfil };
