@@ -2,6 +2,7 @@ const TipoTransacao = require("./tipo_transacao");
 const Transacoes = require("./transacoes");
 const Categoria = require('./categoria');
 const Usuario = require('./usuario')
+const Perfil = require('./perfil')
 
 // Uma categoria pode ter várias transações
 Categoria.hasMany(Transacoes, {
